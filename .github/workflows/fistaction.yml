@@ -35,7 +35,16 @@ jobs:
           echo Hello, $name!
           echo Actor: ${{ github.actor }}
           echo Commited by: ${{ github.event.commits[0].author.name }}
-  
+  weather:
+    runs-on: ubuntu-latest
+    env:
+      location: '28.550,-81.40'
+      lang: eng
+      units: en
+      my_secret: ${{ secrets.IMPORTANTSECRET }}
+    steps:
+      - name: Current Weather
+        run: echo my_secret
   dump:
     runs-on: ubuntu-latest
     steps:
